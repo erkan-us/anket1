@@ -1,0 +1,45 @@
+<ion-view view-title="Anket">	
+<ion-content padding ng-controller="PlaylistsCtrl">
+<div class="row" ng-repeat="page in pages | filter:{pageno : PlayListId}">
+	<div  class="col" >
+		<div class="row">
+			<div class="col" >
+				<div class="item item-text-wrap">
+					<b>{{page.quesiton}}</b>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col" >
+				<ion-list item-left  ng-repeat="answer in answers | filter:{questionno : page.questionno}" ng-if="answer.answertype =='radio'">
+					<ion-radio  item-left ng-model="choice" ng-value="'A'">{{answer.answer}}</ion-radio> 
+				</ion-list>
+				<ion-list  ng-repeat="answer in answers | filter:{questionno : page.questionno}" ng-if="answer.answertype == 'checkbox'"> 
+				  <ion-checkbox ng-model="filter.red">{{answer.answer}}</ion-checkbox> 
+				</ion-list>  
+				 <label class="item item-input" ng-repeat="answer in answers | filter:{questionno : page.questionno}" ng-if="answer.answertype == 'textbox'">
+				    <input width="100%" type="text" placeholder="{{answer.answer}}">
+				 </label>
+				 
+			</div>
+		</div>
+		<div class="row" ng-if="page.pageno != 0">
+			<div class="col" > 
+				<div class="button-bar">
+				  <a class="button" href="#/app/playlist/{{page.np}}"><b>İleri</b></a> 
+				</div> 
+			</div>
+		</div>
+		<div class="row" ng-if="page.pageno == 0">
+			<div class="col" > 
+				<div class="button-bar">
+				  <a class="button" href="#/app/playlists"><b>Yeni Anket</b></a> 
+				</div> 
+			</div>
+		</div>
+	</div>
+</div>
+
+  </ion-content>
+
+</ion-view>

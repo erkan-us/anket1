@@ -1,0 +1,22 @@
+<ion-view	>
+  <ion-content>
+    <!--<ion-list>
+      <ion-item ng-repeat="playlist in playlists" href="#/app/playlists/{{playlist.id}}">
+        {{playlist.title}}
+      </ion-item>
+    </ion-list>-->
+    <div class="card">
+  <div class="item item-text-wrap">
+    <b>Hizmetimizden memnun kaldınız mı?</b>
+  </div>
+</div> 
+    <div class="row">
+    	<div align="center" class="col" ng-repeat="firma in firmalar">
+    	<a class="item"  href="#/app/playlist/{{firma.id}}"> 
+	  		 <img class="center" src="{{firma.logo}}">
+	  	</a> 
+	  	</div>
+	</div>
+  </ion-content>
+</ion-view>
+  	
